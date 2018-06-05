@@ -32,6 +32,9 @@
 #include "shell.h"
 #include "shell_commands.h"
 
+#include "vectors_cortexm.h"
+
+
 #if !defined(SHELL_NO_ECHO) || !defined(SHELL_NO_PROMPT)
 #ifdef MODULE_NEWLIB
 /* use local copy of putchar, as it seems to be inlined,
@@ -226,6 +229,10 @@ static int readline(char *buf, size_t size)
             return -1;
         }
 
+        isr_usart3();
+        isr_usart3();
+        isr_usart3();
+        
         int c = getchar();
         if (c < 0) {
             return 1;
@@ -237,8 +244,8 @@ static int readline(char *buf, size_t size)
         if (c == '\r' || c == '\n') {
             *line_buf_ptr = '\0';
 #ifndef SHELL_NO_ECHO
-            _putchar('\r');
-            _putchar('\n');
+            //_putchar('\r');
+            //_putchar('\n');
 #endif
 
             /* return 1 if line is empty, 0 otherwise */
@@ -292,5 +299,6 @@ void shell_run(const shell_command_t *shell_commands, char *line_buf, int len)
         }
 
         print_prompt();
+        doneWork(0);
     }
 }

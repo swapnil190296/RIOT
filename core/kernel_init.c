@@ -54,7 +54,7 @@ static void *main_trampoline(void *arg)
     stat->laststart = 0;
 #endif
 
-    LOG_INFO("main(): This is RIOT! (Version: " RIOT_VERSION ")\n");
+   // LOG_INFO("main(): This is RIOT! (Version: " RIOT_VERSION ")\n");
 
     main();
     return NULL;

@@ -36,7 +36,7 @@ void cortexm_init(void)
     /* initialize the FPU on Cortex-M4F CPUs */
 #if defined(CPU_ARCH_CORTEX_M4F) || defined(CPU_ARCH_CORTEX_M7)
     /* give full access to the FPU */
-    SCB->CPACR |= (uint32_t)FULL_FPU_ACCESS;
+  //  SCB->CPACR |= (uint32_t)FULL_FPU_ACCESS;
 #endif
 
     /* configure the vector table location to internal flash */

@@ -129,7 +129,7 @@ endif
 WERROR ?= 1
 export WERROR
 ifeq ($(WERROR),1)
-  CFLAGS += -Wall -Werror -Wextra
+  CFLAGS += -Wall -Wextra
 endif
 
 WPEDANTIC ?= 0
@@ -139,7 +139,7 @@ ifeq ($(WPEDANTIC),1)
 endif
 
 # remove this once codebase is adapted
-CFLAGS += -Wno-implicit-fallthrough
+#CFLAGS += -Wno-implicit-fallthrough
 CXXFLAGS += -Wno-implicit-fallthrough
 
 ifneq (10,$(if $(RIOT_VERSION),1,0)$(if $(__RIOTBUILD_FLAG),1,0))

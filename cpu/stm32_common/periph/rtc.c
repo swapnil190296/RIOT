@@ -170,7 +170,7 @@ static inline void rtc_unlock(void)
     RTC->WPR = WPK2;
     /* enter RTC init mode */
     RTC->ISR |= RTC_ISR_INIT;
-    while (!(RTC->ISR & RTC_ISR_INITF)) {}
+   // while (!(RTC->ISR & RTC_ISR_INITF)) {}
 }
 
 static inline void rtc_lock(void)
